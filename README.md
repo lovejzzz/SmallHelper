@@ -41,6 +41,33 @@ This will give you the `nanobot` CLI, which you can use to run and manage your M
 
 ## Getting Started
 
+### Quickstart
+
+1. Install the CLI:
+
+   ```bash
+   brew install nanobot-ai/tap/nanobot
+   ```
+
+2. Create a minimal config file:
+
+   ```yaml
+   # nanobot.yaml
+   agents:
+     main:
+       name: Hello Agent
+       model: gpt-4.1
+       mcpServers: []
+   ```
+
+3. Run Nanobot:
+
+   ```bash
+   nanobot run ./nanobot.yaml
+   ```
+
+4. Open the UI at [http://localhost:8080](http://localhost:8080).
+
 ---
 
 ## Configuration
@@ -163,6 +190,16 @@ Contributions are welcome! Nanobot is still in **alpha**, so expect active devel
 make
 ```
 
+### CLI Basics
+
+Common commands:
+
+```bash
+nanobot run ./nanobot.yaml
+nanobot run ./my-config/
+nanobot help
+```
+
 ### Working on the UI
 
 The Nanobot UI lives in the `./ui` directory. To develop against it:
@@ -188,6 +225,11 @@ The Nanobot UI lives in the `./ui` directory. To develop against it:
 
 4. The UI must be served from port **5173**.\
    Nanobot runs on port **8080** and will forward UI requests to `:5173`.
+
+### Troubleshooting
+
+- **UI not loading**: Ensure the UI dev server is running on port **5173** and the backend is on **8080**.
+- **Missing API keys**: Confirm `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` is exported before running `nanobot run`.
 
 ---
 
